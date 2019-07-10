@@ -23,3 +23,11 @@ In your case you have a binary classification task, therefore your output layer 
 (where the output represents the probability of a test sample being a face). 
 The loss you would use would be binary cross-entropy.
 With this setup you can imagine having a logistic regression at the last layer of your deep neural net.
+
+## The story with Densenet121 and Densenet201?
+
+Well we used Densenets as we had already tried Resnet as the AUC ROC was around 93 for it.Densenet showed promising results around 97-98 on AUCROC (0.9635 on Private LB).
+Features extracted by very early layers are directly used by deeper layers throughout the same dense block.
+Weights of transition layers also spread their weights across all preceding layers.
+Layers within the second and third dense blocks consistently assign the least weight to the outputs of the transition layers.
+At the final classification layer, weights seems to be a concentration towards final feature maps. Some more high-level features produce late in the network.
